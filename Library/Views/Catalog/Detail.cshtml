@@ -60,6 +60,7 @@
                 }
 
             </div>
+
             <div class="col-md-4 detailInfo">
                 <table>
                     <tr>
@@ -79,20 +80,21 @@
         </div>
     </div>
 
+
     <div class="row">
         <div class="col-lg-6">
             <h4>Checkout History</h4>
             <table class="table table-bordered table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th>Date Loaned</th>
-                        <th>Date Returned</th>
-                        <th>Card Id</th>
-                        <th></th>
+                        <th><p class="text-muted">የተከራየበት ቀነ</p></th>
+                        <th><p class="text-muted">የተመለሰበት ቀን</p></th>
+                        <th><p class="text-muted">ካርድ ቁጥር</p></th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    @*@foreach (var checkout in @Model.CheckoutHistory)
+                    @foreach (var checkout in @Model.CheckoutHistory)
                     {
                         <tr>
                             <td>
@@ -102,10 +104,10 @@
                                 @checkout.CheckedIn
                             </td>
                             <td>
-                                @checkout.LibraryCard.Id
+                                @checkout.libraryCard.Id
                             </td>
                         </tr>
-                    }*@
+                    }
                 </tbody>
             </table>
         </div>
@@ -114,12 +116,12 @@
             <table class="table table-bordered table-hover table-condensed">
                 <thead>
                     <tr>
-                        <th>Hold Placed</th>
-                        <th>Patron</th>
+                        <th><p class="text-muted">ተራ የተያዘበት ቀን</p></th>
+                        <th><p class="text-muted">የተጠቃሚው ስም</p></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @*@foreach (var hold in @Model.CurrentHolds)
+                    @foreach (var hold in @Model.CurrentHolds)
                     {
                         <tr>
                             <td>
@@ -129,7 +131,7 @@
                                 @hold.PatronName
                             </td>
                         </tr>
-                    }*@
+                    }
                 </tbody>
             </table>
         </div>

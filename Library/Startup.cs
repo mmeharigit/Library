@@ -29,6 +29,8 @@ namespace Library
         {
             services.AddControllersWithViews();
             services.AddScoped<ILibraryAsset, LibraryAssetService>();
+            services.AddScoped<ICheckout, CheckoutService>();
+            services.AddScoped<IPatronService, PatronService>();
             services.AddDbContext<LibraryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LibraryConnection")));
         }
 
