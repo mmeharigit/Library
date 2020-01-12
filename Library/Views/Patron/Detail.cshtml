@@ -1,4 +1,5 @@
 ﻿@using Library.Models.Patron
+@using Humanizer
 @model Library.Models.Patron.PatronDetailModel
 @{
     ViewBag.Title = @Model.LastName + ", " + @Model.FirstName;
@@ -53,10 +54,10 @@
                                     @checkout.LibraryAsset.Title - (Library Asset ID: @checkout.LibraryAsset.Id)
                                     <ul>
                                         <li>
-                                            Since: @checkout.Since
+                                            Since: @checkout.Since.AddHours(-3).Humanize()
                                         </li>
                                         <li>
-                                            Due: @checkout.Until
+                                            Due: @checkout.Until.Humanize()
                                         </li>
                                     </ul>
                                 </li>
@@ -79,7 +80,7 @@
                         <ul>
                             @foreach (var hold in @Model.Holds)
                             {
-                                <li>@hold.LibraryAsset.Title - Placed @hold.HoldPlaced.ToString("yy-dd-MM - HH:mm")</li>
+                                <li>@hold.LibraryAsset.Title - Placed @hold.HoldPlaced.AddHours(-3).Humanize()</li>
                             }
                         </ul>
                     </div>

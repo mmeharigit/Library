@@ -1,4 +1,5 @@
 ﻿@using Library.Models.Catalog
+@using Humanizer
 @model Library.Models.Catalog.AssetDetailModel
 @{
     ViewBag.Title = @Model.Title;
@@ -98,7 +99,7 @@
                     {
                         <tr>
                             <td>
-                                @checkout.CheckedOut
+                                @checkout.CheckedOut.AddHours(-3).Humanize()
                             </td>
                             <td>
                                 @checkout.CheckedIn
